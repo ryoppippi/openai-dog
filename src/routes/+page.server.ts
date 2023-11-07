@@ -8,7 +8,7 @@ const openai = new OpenAI({
 	apiKey: OPENAI_API_TOKEN
 });
 
-export const load = async () => {
+export const load = async ({ fetch }) => {
 	const dogApiRes = await fetch(DOG_API);
 	const { message } = (await dogApiRes.json()) as { message: string; status: string };
 
