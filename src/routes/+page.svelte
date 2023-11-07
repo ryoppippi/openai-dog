@@ -3,11 +3,14 @@
 
 	import { invalidateAll } from '$app/navigation';
 
-	$: ({ openaiResponse } = data.stream);
+	$: ({
+		dogURL,
+		stream: { openaiResponse }
+	} = data);
 </script>
 
 <div class="center">
-	<img src={data.dogURL} alt="dog" />
+	<img src={dogURL} alt="dog" />
 </div>
 
 <div class="center">
