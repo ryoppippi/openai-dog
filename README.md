@@ -1,6 +1,8 @@
 # OpenAI ❤️ 🐕
 
-https://github.com/ryoppippi/openai-dog/assets/1560508/92d119b7-0a69-41e4-a895-3dc74600206f
+
+https://github.com/ryoppippi/openai-dog/assets/1560508/59b19c65-8b61-4606-a98d-85218ef71a6d
+
 
 # How to run
 
