@@ -2,6 +2,8 @@
 	export let data;
 
 	import { invalidateAll } from '$app/navigation';
+
+	$: ({ openaiResponse } = data.stream);
 </script>
 
 <div class="center">
@@ -9,9 +11,7 @@
 </div>
 
 <div class="center">
-	{#await data.stream.openaiResponse}
-		<article aria-busy="true" />
-	{:then response}
+	{#await openaiResponse then response}
 		{@const choice = response.choices[0]}
 		<p class="desc">{choice.message.content}</p>
 	{:catch error}
@@ -19,8 +19,12 @@
 	{/await}
 </div>
 
-<div class="center">
-	<button on:click={invalidateAll}>Relead</button>
+<div class="center" style="margin-top: 30px;">
+	{#await openaiResponse}
+		<button aria-busy={true} disabled />
+	{:then}
+		<button on:click={invalidateAll}>Relead</button>
+	{/await}
 </div>
 
 <style>
