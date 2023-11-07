@@ -12,8 +12,10 @@
 
 <div class="center">
 	{#await openaiResponse then response}
-		{@const choice = response.choices[0]}
-		<p class="desc">{choice.message.content}</p>
+		{@const choice = response.choices.at(0)}
+		{#if choice != null}
+			<p class="desc">{choice.message.content}</p>
+		{/if}
 	{:catch error}
 		<p>{error.message}</p>
 	{/await}
