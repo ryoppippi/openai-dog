@@ -5,13 +5,13 @@ import OpenAI from "openai";
 const DOG_API = 'https://dog.ceo/api/breeds/image/random' as const satisfies string;
 
 const openai = new OpenAI({
-  apiKey:OPENAI_API_TOKEN
+  apiKey: OPENAI_API_TOKEN
 });
 
 export const load = async ()=>{
 
   const dogApiRes = await fetch(DOG_API);
-  const {message} = await dogApiRes.json() as { message: string; status: string; };
+  const { message } = await dogApiRes.json() as { message: string; status: string; };
 
  const openaiResponse = openai.chat.completions.create({
     model: "gpt-4-vision-preview",
