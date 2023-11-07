@@ -1,46 +1,45 @@
 <script>
-  export let data;
+	export let data;
 
-  import { invalidateAll } from '$app/navigation';
+	import { invalidateAll } from '$app/navigation';
 </script>
 
-
 <div class="center">
-  <img src="{data.dogURL}" alt="dog" height="300"/>
+	<img src={data.dogURL} alt="dog" height="300" />
 </div>
 
 <div class="center">
-  {#await data.stream.openaiResponse}
-    <article aria-busy="true" />
-    {:then response}
-    {@const choice = response.choices[0]}
-    <p class="desc">{choice.message.content}</p>
-    {:catch error}
-    <p>{error.message}</p>
-  {/await}
+	{#await data.stream.openaiResponse}
+		<article aria-busy="true" />
+	{:then response}
+		{@const choice = response.choices[0]}
+		<p class="desc">{choice.message.content}</p>
+	{:catch error}
+		<p>{error.message}</p>
+	{/await}
 </div>
 
 <div class="center">
-  <button on:click={invalidateAll}>Relead</button>
+	<button on:click={invalidateAll}>Relead</button>
 </div>
 
 <style>
-  .center {
-    display: grid;
-    place-items: center;
-  }
+	.center {
+		display: grid;
+		place-items: center;
+	}
 
-  .desc {
-    margin-top: 20px;
-    width: 300px;
-  }
+	.desc {
+		margin-top: 20px;
+		width: 300px;
+	}
 
-  img {
-    border-radius: 10px;
-    height: 300px;
-  }
+	img {
+		border-radius: 10px;
+		height: 300px;
+	}
 
-  button {
-    width: 100px;
-  }
+	button {
+		width: 100px;
+	}
 </style>
