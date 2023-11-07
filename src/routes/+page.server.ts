@@ -1,6 +1,7 @@
 import { OPENAI_API_TOKEN } from '$env/static/private';
 
 import OpenAI from 'openai';
+import { is, ensure } from 'unknownutil';
 
 const DOG_API = 'https://dog.ceo/api/breeds/image/random' as const satisfies string;
 
@@ -10,7 +11,10 @@ const openai = new OpenAI({
 
 export const load = async ({ fetch }) => {
 	const dogApiRes = await fetch(DOG_API);
-	const { message } = (await dogApiRes.json()) as { message: string; status: string };
+	const { message } = ensure(
+		await dogApiRes.json(),
+		is.ObjectOf({ message: is.String, status: is.String })
+	);
 
 	const openaiResponse = openai.chat.completions.create({
 		model: 'gpt-4-vision-preview',
