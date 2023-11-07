@@ -7,7 +7,7 @@
 </script>
 
 <div class="center">
-	<img src={data.dogURL} alt="dog" height="300" />
+	<img src={data.dogURL} alt="dog" />
 </div>
 
 <div class="center">
