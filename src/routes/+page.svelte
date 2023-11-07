@@ -11,7 +11,7 @@
 
 <div class="center">
   {#await data.stream.openaiResponse}
-    loading...
+    <article aria-busy="true" />
     {:then response}
     {@const choice = response.choices[0]}
     <p class="desc">{choice.message.content}</p>
@@ -33,6 +33,11 @@
   .desc {
     margin-top: 20px;
     width: 300px;
+  }
+
+  img {
+    border-radius: 10px;
+    height: 300px;
   }
 
   button {
