@@ -26,7 +26,7 @@ export const load = async ()=>{
           },
           {
             type: "image_url",
-            image_url: { url:message },
+            image_url: { url: message },
           },
         ],
       },
