@@ -24,7 +24,7 @@
 	{/await}
 </div>
 
-<div class="center" style="margin-top: 30px;">
+<div class="center" style:margin-top="30px">
 	{#await openaiResponse}
 		<button aria-busy={true} disabled />
 	{:then}
