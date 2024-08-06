@@ -19,7 +19,7 @@
     "svelte-check": "^3.4.3",
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
-    "typescript-svelte-plugin": "^0.3.34",
+    "typescript-svelte-plugin": "^0.3.40",
     "unknownutil": "^3.10.0",
     "vite": "^4.4.2"
   },
